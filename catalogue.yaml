@@ -66,3 +66,6 @@
   - name: print the count
     ansible.builtin.debug:
       msg: "product count is {{ product_count }}"
+
+  - name: load catalogue
+    ansible.builtin.command: mongo --host mongodb.devopsrank.online </app/schema/catalogue.js   
