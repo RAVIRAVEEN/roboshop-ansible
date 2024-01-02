@@ -24,7 +24,7 @@
         regexp: '127.0.0.1'
         replace: '0.0.0.0'
   
-    - name: mongodb restart
+    - name: catalogue restart
       ansible.builtin.systemd_service:
-        name: mongod
+        name: catalogue
         state: restarted
