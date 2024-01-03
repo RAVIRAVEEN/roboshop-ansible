@@ -2,7 +2,7 @@
   hosts: mysql
   become: yes
   vars:
-     MYSQL_PASSWORD: "roboshop@1"
+    mysql_password: roboshop@1
   tasks:
    - name: install maven
      ansible.builtin.dnf:
@@ -63,15 +63,15 @@
       state: present
 
    - name: check cities schema exists or not 
-     ansible.builtin.command: mysql -h mysql.devopsrank.online -uroot -p{{MYSQL_PASSWORD}} -sN -e "SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME='cities'"
+     ansible.builtin.command: mysql -h mysql.devopsrank.online -uroot -p{{mysql_password}} -sN -e "SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME='cities'"
      register: schema
 
 
 
    - name: print output 
      ansible.builtin.debug:
-       msg: "schema output {{ schema }}"
+       msg: "schema output {{schema}}"
 
    - name: load cities data 
-     ansible.builtin.shell: mysql -h mysql.devopsrank.online -uroot -p{{MYSQL_PASSWORD}} </app/schema/shipping.sql
+     ansible.builtin.shell: mysql -h mysql.devopsrank.online -uroot -p{{mysql_password}} </app/schema/shipping.sql
      when: schema.stdout !="1"
