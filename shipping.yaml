@@ -72,4 +72,4 @@
 
    - name: load cities data 
      ansible.builtin.shell: mysql -h mysql.devopsrank.online -uroot -p{{MYSQL_PASSWORD}} </app/schema/shipping.sql
-     when: schema.stdout ! = "1"
+     when: schema.stdout !="1"
