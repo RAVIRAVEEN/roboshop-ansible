@@ -15,7 +15,7 @@
       name: mysql-community-server
       state: present
 
-   - name: mysql enable and start
+   - name: mysqld enable and start
      ansible.builtin.service:
       name: mysqld
       enabled: yes
