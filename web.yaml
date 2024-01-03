@@ -6,6 +6,13 @@
     ansible.builtin.dnf:
       name: nginx 
       state: present
+
+  - name: Enable nginx service
+    ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
+
   
   - name: remove html directory
     ansible.builtin.file:
@@ -37,4 +44,4 @@
     ansible.builtin.service:
       name: nginx
       state: restarted
-      enabled: yes
+     
