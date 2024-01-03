@@ -31,8 +31,7 @@
 
 
    - name: Install java 
-     ansible.builtin.command:
-      name: mvn clean package
+     ansible.builtin.command: mvn clean package
      args:
       chdir: /app
 
