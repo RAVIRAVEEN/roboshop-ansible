@@ -1,4 +1,4 @@
-- name: install web
+- name: install web compnent
   hosts: web
   become: yes
   tasks: 
@@ -37,5 +37,5 @@
   - name: start and enable nginx
     ansible.builtin.service:
         name: nginx
-        state: started
+        state: restarted
         enabled: yes 
