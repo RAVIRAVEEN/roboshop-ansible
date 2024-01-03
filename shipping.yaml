@@ -66,6 +66,4 @@
       name: mysql
       state: present
 
-   - name: load schema 
-     ansible.builtin.command: mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/schema/shipping.sql 
-    
+   
