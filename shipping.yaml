@@ -25,14 +25,23 @@
 
    - name: extracting application
      ansible.builtin.unarchive:
-     src:  /app
-     dest: /tmp/shipping.zip
+     src:  /tmp/shipping.zip
+     dest: /app
      remote_src: yes
 
 
    - name: Install java 
      ansible.builtin.pip:
       name: mvn clean package
+     args:
+      chdir: /app
+
+
+   - name: renaming jar file
+     ansible.builtin.command: mv target/shipping-1.0.jar shipping.jar
+     args:
+      chdir: /app
+
 
    - name: Copying shipping.service
      ansible.builtin.copy:
@@ -57,4 +66,6 @@
       name: mysql
       state: present
 
+   - name: load schema 
+     ansible.builtin.command: mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/schema/shipping.sql 
     
