@@ -19,10 +19,11 @@
 
   - name: extract file
     ansible.builtin.unarchive:
-    src: /usr/share/nginx/html
-    dest: /tmp/web.zip
+    src: /tmp/web.zip
+    dest: /usr/share/nginx/html
+    remote_src: yes
 
-  - name: copying file
+  - name: copying roboshop configuration
     ansible.builtin.copy:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf    
