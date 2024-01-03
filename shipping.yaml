@@ -21,7 +21,7 @@
    - name: downloading application
      ansible.builtin.get_url:
       url: https://roboshop-builds.s3.amazonaws.com/shipping.zip
-      path: /tmp
+      dest: /tmp
 
    - name: extracting application
      ansible.builtin.unarchive:
