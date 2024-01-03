@@ -20,14 +20,14 @@
 
    - name: downloading application
      ansible.builtin.get_url:
-     url: https://roboshop-builds.s3.amazonaws.com/shipping.zip
-     path: /tmp
+      url: https://roboshop-builds.s3.amazonaws.com/shipping.zip
+      path: /tmp
 
    - name: extracting application
      ansible.builtin.unarchive:
-     src:  /tmp/shipping.zip
-     dest: /app
-     remote_src: yes
+      src:  /tmp/shipping.zip
+      dest: /app
+      remote_src: yes
 
 
    - name: Install java 
