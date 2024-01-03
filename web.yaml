@@ -36,11 +36,10 @@
 
   - name: start and enable nginx
     ansible.builtin.service:
+      enabled: yes
       name: nginx
       state: started
-      enabled: yes
-
-
+    
   - name: nginx restart
     ansible.builtin.systemd_service:
         name: nginx
