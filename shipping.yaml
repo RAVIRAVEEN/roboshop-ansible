@@ -3,7 +3,7 @@
   become: yes
   tasks:
     vars:
-    MYSQL_PASSWORD: roboshop@1
+     MYSQL_PASSWORD: roboshop@1
 
 - name: install maven
   ansible.builtin.dnf:
