@@ -68,7 +68,7 @@
   #     msg: "user count is {{ user_count }}"
 
   - name: load user
-    ansible.builtin.command: mongo --host mongodb.devopsrank.online < /app/schema/user.js   
+    ansible.builtin.command: mongo --host mongodb.devopsrank.online </app/schema/user.js   
     when: user_count.stdout == "0" 
 
   - name: start and enable user
