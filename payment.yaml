@@ -13,8 +13,8 @@
      
    - name: creating directory
      ansible.builtin.file:
-     path: /app
-     state: directory 
+      path: /app
+      state: directory 
    
    - name: downloading payment application
      ansible.builtin.get_url:
@@ -23,9 +23,9 @@
 
    - name: extract payment
      ansible.builtin.unarchive:
-     src: /tmp/payment.zip
-     dest: /app
-     remote_src: yes
+      src: /tmp/payment.zip
+      dest: /app
+      remote_src: yes
 
    - name: Install dependencies
      ansible.builtin.command: pip3.6 install -r requirements.txt
@@ -34,8 +34,8 @@
 
    - name: Copy payment service
      ansible.builtin.copy:
-     src: payment.service
-     dest: /etc/systemd/system/payment.service
+      src: payment.service
+      dest: /etc/systemd/system/payment.service
 
 
    - name: daemon_reload 
