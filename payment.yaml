@@ -4,7 +4,7 @@
   tasks:
    - name: install python
      ansible.builtin.dnf: 
-      name: python36 gcc python3-devel
+      name: python36, gcc, python3-devel
       state: present
          
    - name: create roboshop
