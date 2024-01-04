@@ -13,7 +13,7 @@
   - name: create roboshop
     ansible.builtin.user:
      name: roboshop
-       
+     
   - name: creating directory
     ansible.builtin.file:
      path: /app
